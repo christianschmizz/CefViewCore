@@ -149,6 +149,8 @@ public:
                                  CefRefPtr<CefDownloadItem> download_item,
                                  CefRefPtr<CefDownloadItemCallback> callback) = 0;
 
+  virtual bool onAuthRequested(CefRefPtr<CefBrowser> browser, CefRefPtr<CefAuthCallback> callback);
+
   // Off screen rendering
   virtual bool getRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect& rect) { return false; }
   virtual void getViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect) {}

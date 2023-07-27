@@ -372,5 +372,13 @@ protected:
   void OnDownloadUpdated(CefRefPtr<CefBrowser> browser,
                          CefRefPtr<CefDownloadItem> download_item,
                          CefRefPtr<CefDownloadItemCallback> callback) override;
+  bool GetAuthCredentials(CefRefPtr<CefBrowser> browser,
+                          const CefString& origin_url,
+                          bool isProxy,
+                          const CefString& host,
+                          int port,
+                          const CefString& realm,
+                          const CefString& scheme,
+                          CefRefPtr<CefAuthCallback> callback);
 };
 #endif

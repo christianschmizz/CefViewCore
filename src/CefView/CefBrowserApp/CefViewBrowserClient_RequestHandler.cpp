@@ -12,6 +12,18 @@
 
 #include <Common/CefViewCoreLog.h>
 
+bool
+CefViewBrowserClient::GetAuthCredentials(CefRefPtr<CefBrowser> browser, const CefString& origin_url, bool isProxy, const CefString& host, int port, const CefString& realm, const CefString& scheme, CefRefPtr<CefAuthCallback> callback)
+{
+  CEF_REQUIRE_UI_THREAD();
+
+  auto delegate = client_delegate_.lock();
+  if (delegate)
+    return delegate->onAuthRequested(browser, callback);
+
+  return false;
+}
+
 CefRefPtr<CefRequestHandler>
 CefViewBrowserClient::GetRequestHandler()
 {
