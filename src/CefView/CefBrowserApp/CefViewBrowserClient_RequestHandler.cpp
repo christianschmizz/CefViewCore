@@ -19,7 +19,7 @@ CefViewBrowserClient::GetAuthCredentials(CefRefPtr<CefBrowser> browser, const Ce
 
   auto delegate = client_delegate_.lock();
   if (delegate)
-    return delegate->onAuthRequested(browser, callback);
+    return delegate->onAuthRequested(browser, origin_url, isProxy, host, port, realm, scheme, callback);
 
   return false;
 }
